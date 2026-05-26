@@ -7,6 +7,8 @@ auth_require();
 
 $error   = '';
 $success = '';
+
+/*  CREATE — Processamento do Cadastro */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'create') {
     $name    = trim($_POST['name']    ?? '');
     $email   = trim($_POST['email']   ?? '');
@@ -29,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'crea
         }
     }
 }
+
+/* UPDATE — edição */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'update') {
     $id      = (int)($_POST['id']      ?? 0);
     $name    = trim($_POST['name']    ?? '');
@@ -52,6 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'upda
         }
     }
 }
+
+/* DELETE — remoção */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'delete') {
     $id = (int)($_POST['id'] ?? 0);
     if ($id) {
@@ -59,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'dele
         $success = 'Tutor removido com sucesso!';
     }
 }
+
+/* READ — Consultar e listar dados */
 $search = trim($_GET['q'] ?? '');
 if ($search) {
     $stmt = $pdo->prepare(

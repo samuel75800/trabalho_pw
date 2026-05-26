@@ -1,9 +1,4 @@
 <?php
-/* ============================================================
-   puppy.co — Pets CRUD
-   pages/pets.php
-   ============================================================ */
-
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
 
@@ -180,7 +175,7 @@ require_once __DIR__ . '/../includes/header.php';
   <script>document.addEventListener('DOMContentLoaded',()=> showToast('<?= addslashes($error) ?>', 'error'));</script>
 <?php endif; ?>
 
-<!-- ── Toolbar ─────────────────────────────────────────────── -->
+<!-- ── Toolbar  -->
 <div class="toolbar">
   <form method="GET" action="" class="search-wrap">
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
@@ -199,7 +194,7 @@ require_once __DIR__ . '/../includes/header.php';
   </button>
 </div>
 
-<!-- ── Tabela ──────────────────────────────────────────────── -->
+<!-- ── Tabela -->
 <div class="table-wrap">
   <table id="pets-table">
     <thead>
@@ -273,9 +268,7 @@ require_once __DIR__ . '/../includes/header.php';
   </table>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════
-     MODAL — CRIAR
-══════════════════════════════════════════════════════════ -->
+<!-- MODAL — CRIAR -->
 <div id="modal-create" class="modal-overlay">
   <div class="modal">
     <div class="modal-header">
@@ -328,9 +321,7 @@ require_once __DIR__ . '/../includes/header.php';
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════
-     MODAL — EDITAR
-══════════════════════════════════════════════════════════ -->
+<!-- MODAL — EDITAR -->
 <div id="modal-edit" class="modal-overlay">
   <div class="modal">
     <div class="modal-header">
@@ -383,7 +374,7 @@ require_once __DIR__ . '/../includes/header.php';
   </div>
 </div>
 
-<!-- ── Form oculto para DELETE ────────────────────────────── -->
+<!-- ── Form oculto pro DELETE -->
 <form id="form-delete" method="POST" action="" style="display:none">
   <input type="hidden" name="_action" value="delete">
   <input type="hidden" name="id" id="delete-id">

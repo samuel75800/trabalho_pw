@@ -9,7 +9,7 @@ auth_require();
 $error   = '';
 $success = '';
 
-// ── CREATE ───────────────────────────────────────────────────
+// ── CREATE 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'create') {
     $pet_id  = (int)($_POST['pet_id']           ?? 0);
     $date    = trim($_POST['appointment_date']   ?? '');
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'crea
     }
 }
 
-// ── UPDATE ───────────────────────────────────────────────────
+// ── UPDATE
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'update') {
     $id      = (int)($_POST['id']               ?? 0);
     $pet_id  = (int)($_POST['pet_id']           ?? 0);
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'upda
     }
 }
 
-// ── DELETE ───────────────────────────────────────────────────
+// ── DELETE 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'delete') {
     $id = (int)($_POST['id'] ?? 0);
     if ($id) {
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'dele
     }
 }
 
-// ── READ (filtro de status) ──────────────────────────────
+// ── READ
 $filter_status = $_GET['status'] ?? 'all';
 $search        = trim($_GET['q'] ?? '');
 
@@ -93,7 +93,7 @@ $stmt = $pdo->prepare(
 $stmt->execute($params);
 $appointments = $stmt->fetchAll();
 
-// Pets para os selects
+// Pets pros selects
 $pets = $pdo->query(
     "SELECT p.id, p.name, p.species, o.name AS owner_name
      FROM pets p JOIN owners o ON p.owner_id = o.id
