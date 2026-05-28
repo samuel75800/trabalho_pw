@@ -1,8 +1,5 @@
 <?php
-/* ============================================================
-   puppy.co — Appointments CRUD
-   pages/appointments.php
-   ============================================================ */
+
 
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
@@ -65,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_action'] ?? '') === 'dele
     }
 }
 
-// ── READ (com filtro de status) ──────────────────────────────
+// ── READ (filtro de status) ──────────────────────────────
 $filter_status = $_GET['status'] ?? 'all';
 $search        = trim($_GET['q'] ?? '');
 
@@ -212,7 +209,7 @@ require_once __DIR__ . '/../includes/header.php';
   <script>document.addEventListener('DOMContentLoaded',()=> showToast('<?= addslashes($error) ?>', 'error'));</script>
 <?php endif; ?>
 
-<!-- ── Toolbar ─────────────────────────────────────────────── -->
+<!-- ── Toolbar── -->
 <div class="toolbar">
 
   <!-- Busca -->
@@ -249,7 +246,7 @@ require_once __DIR__ . '/../includes/header.php';
   </button>
 </div>
 
-<!-- ── Tabela ──────────────────────────────────────────────── -->
+<!-- ── Tabela -->
 <div class="table-wrap">
   <table id="appt-table">
     <thead>
@@ -328,9 +325,7 @@ require_once __DIR__ . '/../includes/header.php';
   </table>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════
-     MODAL — CRIAR
-══════════════════════════════════════════════════════════ -->
+<!--  MODAL — CRIAR -->
 <div id="modal-create" class="modal-overlay">
   <div class="modal">
     <div class="modal-header">
@@ -389,9 +384,8 @@ require_once __DIR__ . '/../includes/header.php';
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════
-     MODAL — EDITAR
-══════════════════════════════════════════════════════════ -->
+<!--
+     MODAL — EDit-->
 <div id="modal-edit" class="modal-overlay">
   <div class="modal">
     <div class="modal-header">
@@ -449,7 +443,7 @@ require_once __DIR__ . '/../includes/header.php';
   </div>
 </div>
 
-<!-- ── Form oculto para DELETE ────────────────────────────── -->
+<!-- ── Form escondido do DELETE -->
 <form id="form-delete" method="POST" action="" style="display:none">
   <input type="hidden" name="_action" value="delete">
   <input type="hidden" name="id" id="delete-id">

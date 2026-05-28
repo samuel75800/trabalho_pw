@@ -1,21 +1,9 @@
 <?php
-/* ============================================================
-   puppy.co — Header Component
-   includes/header.php
-   Usage: require_once __DIR__ . '/includes/header.php';
-
-   Variables you can set before including:
-   $page_title  — string shown in <title> and page heading  (default: 'puppy.co')
-   $page_icon   — emoji/svg shown beside the h1             (default: '🐾')
-   ============================================================ */
-
 $page_title = $page_title ?? 'puppy.co';
 $page_icon  = $page_icon  ?? '🐾';
 
-// Active page detection
 $current = basename($_SERVER['PHP_SELF']);
 
-// Nav items: [label, href, icon SVG path]
 $nav_items = [
   ['Dashboard',    'dashboard.php',    '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'],
   ['Owners',       'owners.php',       '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'],
@@ -30,14 +18,11 @@ $nav_items = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?> — puppy.co</title>
 
-  <!-- Fonts preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Global styles -->
- <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- Inline: apply saved theme before paint (no flash) -->
   <script>
     (function () {
       var t = localStorage.getItem('puppyco_theme') ||
@@ -48,25 +33,18 @@ $nav_items = [
 </head>
 <body>
 
-<!-- ── Custom Cursor ──────────────────────────────────────── -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 
-<!-- ── Toast Container ────────────────────────────────────── -->
 <div id="toast-container" aria-live="polite"></div>
 
-<!-- ══════════════════════════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════════════════════════ -->
 <header class="navbar" role="banner">
 
-  <!-- Brand -->
   <a href="dashboard.php" class="navbar-brand" aria-label="puppy.co — ir para dashboard">
     <span class="dot" aria-hidden="true"></span>
     puppy.co
   </a>
 
-  <!-- Nav links -->
   <nav aria-label="Navegação principal">
     <ul class="navbar-nav">
       <?php foreach ($nav_items as [$label, $href, $icon_path]): ?>
@@ -84,10 +62,8 @@ $nav_items = [
         </li>
       <?php endforeach; ?>
 
-      <!-- Divider -->
       <li aria-hidden="true" style="width:1px; height:20px; background:var(--border); margin:0 6px;"></li>
 
-      <!-- Theme toggle -->
       <li>
         <button
           class="theme-toggle"
@@ -97,9 +73,8 @@ $nav_items = [
         ></button>
       </li>
 
-      <!-- Logout -->
       <li>
-        <a href="logout.php" title="Sair"
+        <a href="/pages/logout.php" title="Sair"
            style="color:var(--text-muted);"
            onclick="return confirm('Deseja encerrar a sessão?')">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -118,9 +93,6 @@ $nav_items = [
 
 </header>
 
-<!-- ══════════════════════════════════════════════════════════
-     PAGE HEADER  (title bar below navbar)
-══════════════════════════════════════════════════════════ -->
 <?php if ($current !== 'login.php'): ?>
 <div class="page-header">
   <div class="container">
@@ -133,7 +105,4 @@ $nav_items = [
 </div>
 <?php endif; ?>
 
-<!-- ══════════════════════════════════════════════════════════
-     MAIN CONTENT STARTS
-══════════════════════════════════════════════════════════ -->
 <main class="container" style="padding-top: 32px; padding-bottom: 60px;" role="main">
