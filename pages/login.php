@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
 
-auth_guest_only();
+
 
 $error   = '';
 $timeout = isset($_GET['reason']) && $_GET['reason'] === 'timeout';
