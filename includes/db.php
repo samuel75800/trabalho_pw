@@ -1,14 +1,8 @@
 <?php
-// ============================================================
-//  puppy.co — Database Connection
-//  includes/db.php
-//  Usage: require_once __DIR__ . '/../includes/db.php';
-// ============================================================
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'puppyco');
-define('DB_USER', 'root');
-define('DB_PASS', '');          // XAMPP default has no password
+define('DB_HOST',    $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME',    $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?: 'puppyco');
+define('DB_USER',    $_ENV['DB_USER'] ?? getenv('DB_USER') ?: 'root');
+define('DB_PASS',    $_ENV['DB_PASS'] ?? getenv('DB_PASS') ?: '');
 define('DB_CHARSET', 'utf8mb4');
 
 $dsn = 'mysql:host=' . DB_HOST
@@ -24,11 +18,6 @@ $options = [
 try {
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
 } catch (PDOException $e) {
-    // Never expose raw error messages to the browser in production
     error_log('Database connection failed: ' . $e->getMessage());
-    try {
-    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-} catch (PDOException $e) {
-    die('Erro: ' . $e->getMessage()); // só durante debug
-}
+    die('Connection error. Please try again later.');
 }
