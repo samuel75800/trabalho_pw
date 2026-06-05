@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/puppy.co/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <script>
     (function () {
@@ -434,7 +434,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 </div>
 
-<script src="/puppy.co/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 <script>
   function updateThemeLabel() {
     const label = document.getElementById('theme-label');

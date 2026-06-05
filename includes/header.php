@@ -35,7 +35,7 @@ $nav_items = [
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Global styles -->
- <link rel="stylesheet" href="/puppy.co/assets/css/style.css">
+ <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Inline: apply saved theme before paint (no flash) -->
   <script>
