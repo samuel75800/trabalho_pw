@@ -1,0 +1,18 @@
+{
+  "name": "puppy.co",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/var/www/html",
+  "forwardPorts": [8080, 8081],
+  "portsAttributes": {
+    "8080": {
+      "label": "puppy.co",
+      "onAutoForward": "openBrowser"
+    },
+    "8081": {
+      "label": "phpMyAdmin",
+      "onAutoForward": "notify"
+    }
+  },
+  "postStartCommand": "echo 'puppy.co pronto em http://localhost:8080/pages/login.php'"
+}
